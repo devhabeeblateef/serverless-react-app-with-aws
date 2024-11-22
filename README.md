@@ -3,8 +3,6 @@
 
 This is a serverless application that allows users to manage a list of items, including adding, retrieving, updating, and deleting items. The architecture leverages AWS services such as DynamoDB, API Gateway, Lambda, and CloudFormation to provide a scalable and cost-efficient solution.
 
----
-
 ## **Architecture Overview**
 
 The application follows a serverless design, with the following components:
@@ -13,8 +11,6 @@ The application follows a serverless design, with the following components:
 - **Lambda Function**: Handles business logic and integrates with DynamoDB.
 - **API Gateway**: Provides a RESTful API interface for the frontend to interact with the backend.
 - **CloudFormation**: Automates the deployment of infrastructure resources.
-
----
 
 ## **Setup and Deployment**
 
@@ -25,8 +21,6 @@ I used the **AWS Management Console** to create and deploy the following resourc
   - **Primary Key**: `itemId` (String).
   - Provisioned throughput set to 1 read/write unit (for demonstration purposes).
 
----
-
 ### 2. **Lambda Function**
 - A Node.js function was created to process API requests.
 - The function supports the following operations:
@@ -34,8 +28,6 @@ I used the **AWS Management Console** to create and deploy the following resourc
   - **PUT**: Add or update items in the database.
   - **DELETE**: Remove an item from the database.
 - The Lambda function was given permissions to access DynamoDB and log to CloudWatch.
-
----
 
 ### 3. **API Gateway**
 - Configured an HTTP API to expose endpoints for interacting with the Lambda function.
@@ -45,8 +37,6 @@ I used the **AWS Management Console** to create and deploy the following resourc
   - `PUT /items`: Add or update an item.
   - `DELETE /items/{id}`: Delete an item by ID.
 - Enabled CORS for cross-origin requests.
-
----
 
 ### 4. **CloudFormation Template**
 
@@ -176,8 +166,6 @@ Outputs:
 3. Launched the stack and verified all resources were created successfully.
 4. Retrieved the API Gateway invoke URL from the **Outputs** section of the CloudFormation stack.
 
----
-
 ## **Testing**
 1. Used **Postman** or a browser to test the API endpoints:
    - `PUT /items` with a JSON payload to add an item.
@@ -186,14 +174,10 @@ Outputs:
    - `DELETE /items/{id}` to delete an item.
 2. Verified that DynamoDB stored and updated the data as expected.
 
----
-
 ## **Key Features**
 - Fully serverless and scalable architecture.
 - Automated deployment with CloudFormation.
 - Seamless integration of API Gateway, Lambda, and DynamoDB.
-
----
 
 ## **Next Steps**
 - Add authentication using Amazon Cognito or IAM roles.
