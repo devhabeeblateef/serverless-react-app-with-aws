@@ -3,25 +3,25 @@
 
 This is a serverless application that allows users to manage a list of items, including adding, retrieving, updating, and deleting items. The architecture leverages AWS services such as DynamoDB, API Gateway, Lambda, and CloudFormation to provide a scalable and cost-efficient solution.
 
-## **Architecture Overview**
+## Architecture Overview
 
 The application follows a serverless design, with the following components:
 
-- **DynamoDB**: Acts as the database to store item details.
-- **Lambda Function**: Handles business logic and integrates with DynamoDB.
-- **API Gateway**: Provides a RESTful API interface for the frontend to interact with the backend.
-- **CloudFormation**: Automates the deployment of infrastructure resources.
+- DynamoDB: Acts as the database to store item details.
+- Lambda Function: Handles business logic and integrates with DynamoDB.
+- API Gateway: Provides a RESTful API interface for the frontend to interact with the backend.
+- CloudFormation: Automates the deployment of infrastructure resources.
 
-## **Setup and Deployment**
+## Setup and Deployment
 
-I used the **AWS Management Console** to create and deploy the following resources:
+I used the AWS Management Console to create and deploy the following resources:
 
-### 1. **DynamoDB Table**
+### 1. DynamoDB Table
 - Created a table named `all-items` with the following attributes:
   - **Primary Key**: `itemId` (String).
   - Provisioned throughput set to 1 read/write unit (for demonstration purposes).
 
-### 2. **Lambda Function**
+### 2. Lambda Function
 - A Node.js function was created to process API requests.
 - The function supports the following operations:
   - **GET**: Retrieve items or a single item by ID.
@@ -29,7 +29,7 @@ I used the **AWS Management Console** to create and deploy the following resourc
   - **DELETE**: Remove an item from the database.
 - The Lambda function was given permissions to access DynamoDB and log to CloudWatch.
 
-### 3. **API Gateway**
+### 3. API Gateway
 - Configured an HTTP API to expose endpoints for interacting with the Lambda function.
 - API Methods:
   - `GET /items`: Retrieve all items.
@@ -38,7 +38,7 @@ I used the **AWS Management Console** to create and deploy the following resourc
   - `DELETE /items/{id}`: Delete an item by ID.
 - Enabled CORS for cross-origin requests.
 
-### 4. **CloudFormation Template**
+### 4. CloudFormation Template
 
 To streamline and automate resource creation, I created the following CloudFormation template:
 
